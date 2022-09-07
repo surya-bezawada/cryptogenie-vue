@@ -22,6 +22,9 @@
 .fw-400 {
   font-weight: 400;
 }
+.fs-12{
+  font-size: 12px ;
+}
 
 .fs-16 {
   font-size: 16px;

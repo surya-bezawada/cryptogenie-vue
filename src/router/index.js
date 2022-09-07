@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignupView from '../views/SignupView.vue'
 import  MainView from '../views/MainView.vue'
-import PredictionsView from '../views/PredictionsView'
+import PredictionsView from '../views/PredictionsView.vue'
+
 
 
 const routes = [
@@ -27,7 +28,10 @@ const routes = [
       name: 'prediction',
       component: PredictionsView
     },
+    
+ 
    
+ 
  
  
 ]

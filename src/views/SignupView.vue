@@ -30,7 +30,13 @@
         <div class="row">
           <div class="col-6">
             <div class="form-floating mb-3">
+              <small
+                class="text-danger fs-12 fw-400"
+                v-if="(submitted || signup .get('firstname')?.touched)  && signup.get('firstname')?.errors?.['required']"
+                >First Name</small
+              >
               <input
+                v-model="Firstname"
                 type="text"
                 class="form-control"
                 id="floatingInput"
@@ -42,6 +48,7 @@
           <div class="col-6">
             <div class="form-floating mb-3">
               <input
+                v-model="Lastname"
                 type="text"
                 class="form-control"
                 id="floatingInput"
@@ -54,6 +61,7 @@
 
         <div class="form-floating mb-3">
           <input
+            v-model="Email"
             type="text"
             class="form-control"
             id="floatingInput"
@@ -64,6 +72,7 @@
 
         <div class="form-floating mb-3">
           <input
+            v-model="Password"
             type="text"
             class="form-control"
             id="floatingInput"
@@ -73,6 +82,7 @@
         </div>
         <div class="form-floating mb-3">
           <input
+            v-model="Confirmpassword"
             type="text"
             class="form-control"
             id="floatingInput"
@@ -95,7 +105,9 @@
         </div>
 
         <div class="d-grid gap-2">
-          <button class="button mt-5" type="submit">Sign Up</button>
+          <button class="button mt-5" type="submit" @click="signup()">
+            Sign Up
+          </button>
         </div>
 
         <div class="row mt-5">
@@ -110,8 +122,42 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "signup-Page",
+  data() {
+    return {
+      Firstname: "",
+      Lastname: "",
+      Email: "",
+      Password: "",
+      Confirmpassword: "",
+    };
+  },
+  methods: {
+    signup() {
+      const adduser = {
+        firstname: this.Firstname,
+        lastname: this.Lastname,
+        email: this.Email,
+        password: this.Password,
+        confirmpassword: this.Confirmpassword,
+      };
+      axios
+        .post(
+          "https://rx03iubpad.execute-api.us-east-2.amazonaws.com/test/v1/signup",
+          adduser
+        )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          console.log("Error : ", e);
+        });
+
+      console.log(adduser);
+    },
+  },
 };
 </script>
 <style scopped>
