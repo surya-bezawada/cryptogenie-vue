@@ -4,7 +4,12 @@
   <div class="container-fluid">
     <div class="row mt-5">
       <div class="col-lg-6 col-md-6">
-        <img src="../assets/machine.svg" class="img-fluid" alt="" id="machine" />
+        <img
+          src="../assets/machine.svg"
+          class="img-fluid"
+          alt=""
+          id="machine"
+        />
         <p class="main fs-47 fw-700">
           CryptoGenie is a yantra which predicts the directional trend of select
           crypto assets
@@ -33,19 +38,26 @@
       </div>
 
       <div class="col-lg-6 col-md-6">
-        <img src="../assets/Illustartion.svg" class="illustration" width="100%" alt="" />
+        <img
+          src="../assets/Illustartion.svg"
+          class="illustration"
+          width="100%"
+          alt=""
+        />
       </div>
     </div>
     <div class="arrow mb-5">
-
-      <img src="../assets/Arrows.svg" class="img-fluid img-css pt-5" width="100%" alt="" />
-
+      <img
+        src="../assets/Arrows.svg"
+        class="img-fluid img-css pt-5"
+        width="100%"
+        alt=""
+      />
     </div>
-
   </div>
 
   <div class="container mt-5">
-    <p class="text-center fs-3 " id="features">Features</p>
+    <p class="text-center fs-3" id="features">Features</p>
 
     <div class="row">
       <div class="col-lg-6">
@@ -127,13 +139,23 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <img src="../assets/Howitworks.svg" class="img-fluid" width="100%" alt="" />
+        <img
+          src="../assets/Howitworks.svg"
+          class="img-fluid"
+          width="100%"
+          alt=""
+        />
       </div>
     </div>
   </div>
 
   <div class="pricing mt-3">
-    <img src="../assets/Arrows2.svg" class="img-fluid img-css" width="100%" alt="" />
+    <img
+      src="../assets/Arrows2.svg"
+      class="img-fluid img-css"
+      width="100%"
+      alt=""
+    />
     <div class="container p-0">
       <div class="row">
         <p class="pricing fs-32 fw-700 mt-5 mb-5 text-center">Pricing</p>
@@ -153,38 +175,21 @@
                 <img src="../assets/tag1.svg" class="parallel text-center" />
               </h1>
               <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
                 <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
               </div>
               <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
-                <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
-              </div>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary fs-16 fw-700" type="submit">
-                  Go to predictions
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="line-border"></div>
-              <p class="text-center fs-28 fw-700 pt-2">Free</p>
-              <p class="fs-14 fw-400 text-center">
-                Lorem ipsum dolor sit amet,
-              </p>
-              <h1>
-                <img src="../assets/tag1.svg" class="parallel text-center" />
-              </h1>
-              <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
-                <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
-              </div>
-              <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
                 <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
               </div>
               <div class="d-grid gap-2">
@@ -207,11 +212,21 @@
                 <img src="../assets/tag1.svg" class="parallel text-center" />
               </h1>
               <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
                 <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
               </div>
               <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
                 <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
               </div>
               <div class="d-grid gap-2">
@@ -234,11 +249,58 @@
                 <img src="../assets/tag1.svg" class="parallel text-center" />
               </h1>
               <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
                 <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
               </div>
               <div class="d-flex gap-2">
-                <img src="../assets/Vector.svg" alt="" width="20px" height="20px" />
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
+                <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary fs-16 fw-700" type="submit">
+                  Go to predictions
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="line-border"></div>
+              <p class="text-center fs-28 fw-700 pt-2">Free</p>
+              <p class="fs-14 fw-400 text-center">
+                Lorem ipsum dolor sit amet,
+              </p>
+              <h1>
+                <img src="../assets/tag1.svg" class="parallel text-center" />
+              </h1>
+              <div class="d-flex gap-2">
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
+                <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
+              </div>
+              <div class="d-flex gap-2">
+                <img
+                  src="../assets/Vector.svg"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
                 <p class="fs-16 fw-400">BTCUSDT Charts & current predictions</p>
               </div>
               <div class="d-grid gap-2">
@@ -253,7 +315,12 @@
 
       <div class="row pt-5">
         <div class="col-lg-6">
-          <img src="../assets/Group48265.svg" alt="" width="100%" class="black-banner img-fluid" />
+          <img
+            src="../assets/Group48265.svg"
+            alt=""
+            width="100%"
+            class="black-banner img-fluid"
+          />
         </div>
         <div class="col-lg-6">
           <p class="fs-36 fw-700">
@@ -268,7 +335,6 @@
     </div>
     <Footer></Footer>
   </div>
-
 </template>
 <script>
 import Navbar from "@/components/Navbar.vue";

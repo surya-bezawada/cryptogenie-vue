@@ -4,10 +4,8 @@
       <div class="col-6 p-0">
         <img src="../assets/Banner.svg" alt="" />
       </div>
-
       <div class="col-6 pt-5">
         <h1 class="heading fs-32 fw-700">Sign UP</h1>
-
         <div class="row mt-5 mb-5">
           <div class="col-6">
             <div class="social">
@@ -22,19 +20,12 @@
             </div>
           </div>
         </div>
-
         <div class="Or mt-5 mb-5">
           <h2 class="or-color">OR</h2>
         </div>
-
         <div class="row">
           <div class="col-6">
             <div class="form-floating mb-3">
-              <small
-                class="text-danger fs-12 fw-400"
-                v-if="(submitted || signup .get('firstname')?.touched)  && signup.get('firstname')?.errors?.['required']"
-                >First Name</small
-              >
               <input
                 v-model="Firstname"
                 type="text"
@@ -113,7 +104,7 @@
         <div class="row mt-5">
           <div class="col-12">
             <div class="text-center fs-16 fw-400">
-              Already a user? &nbsp; <a href="#">SignIn</a>
+              Already a user? &nbsp; <a href="#" @click="login">SignIn</a>
             </div>
           </div>
         </div>
@@ -123,8 +114,19 @@
 </template>
 <script>
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-vue";
 export default {
+  
   name: "signup-Page",
+  setup() {
+    const auth0 = useAuth0();
+
+    return {
+      login() {
+        auth0.loginWithRedirect();
+      },
+    };
+  },
   data() {
     return {
       Firstname: "",
@@ -143,6 +145,7 @@ export default {
         password: this.Password,
         confirmpassword: this.Confirmpassword,
       };
+    
       axios
         .post(
           "https://rx03iubpad.execute-api.us-east-2.amazonaws.com/test/v1/signup",
@@ -154,6 +157,7 @@ export default {
         .catch((e) => {
           console.log("Error : ", e);
         });
+       
 
       console.log(adduser);
     },

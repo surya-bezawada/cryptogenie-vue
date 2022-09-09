@@ -24,20 +24,38 @@
       </ul>
       <div class="register">
         <ul class="nav justify-content-end">
-          <li class="nav-item fw-700px fs-16px">
-            <a
-              href="/signup"
-              class="nav-link fs-16 fw-700 active-link exact-active-link"
-              >SignUp</a
-            >
-          </li>
-          <li class="nav-ite ms-auto">
-            <!-- <a class="nav-link fs-16 fw-700 signin active-link exact-active-link" id="button" href="/login"
-              ></a -->
-            <a class="nav-link fs-16 fw-700 login" href="" @click="login"
-              >Sign In</a
-            >
-          </li>
+          <div class="res" v-if="!isAuthenticated">
+            <li class="nav-item fw-700px fs-16px">
+              <a href="/signup" class="nav-link fs-16 fw-700">SignUp</a>
+            </li>
+            <li class="nav-ite ms-auto">
+              <Login />
+            </li>
+          </div>
+          <div class="dropdown">
+            <li class="nav-item dropdown ms-auto" v-if="isAuthenticated">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa fa-user" style="font-size: 48px; color: red"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+                <li><Logout /></li>
+              </ul>
+            </li>
+          </div>
         </ul>
       </div>
     </nav>
@@ -46,17 +64,17 @@
 </template>
 
 <script>
-import { useAuth0 } from "@auth0/auth0-vue";
+import Login from "./Login.vue";
+import Logout from "./Logout.vue";
+
 export default {
   name: "nav-page",
+  props: {},
 
-  setup() {
-    const auth0 = useAuth0();
-
+  components: { Login, Logout },
+  data() {
     return {
-      login() {
-        auth0.loginWithRedirect();
-      },
+      isAuthenticated: this.$auth0.isAuthenticated,
     };
   },
 };
@@ -66,9 +84,14 @@ ul {
   margin: 0 auto;
 }
 
+.res {
+  display: flex;
+}
+
 a {
   color: #000000;
 }
+
 a:hover {
   color: #000000;
 }

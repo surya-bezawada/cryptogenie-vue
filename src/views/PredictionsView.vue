@@ -1,7 +1,11 @@
 <template>
   <div class="pre">
     <Navbar></Navbar>
-    <PredictionCard v-for="product in Products" :key="product.asset" :product="product"/>
+    <PredictionCard
+      v-for="product in Products"
+      :key="product.asset"
+      :product="product"
+    />
     <Footer></Footer>
   </div>
 </template>
@@ -9,226 +13,26 @@
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import PredictionCard from "@/components/prediction-card.vue";
+import axios from "axios";
 export default {
   name: "prediction-page",
-  components: { Navbar, Footer,  PredictionCard },
+  components: { Navbar, Footer, PredictionCard },
+
   data() {
     return {
-      Products: [
-        {
-          asset: "BTCUSDT",
-          base_asset: "BTC",
-          quote_asset: "USDT",
-          timestamp: "2022-08-29T00:00:00Z",
-
-          previous: [
-            {
-              from_timestamp: "2022-08-28T23:30:00Z",
-              to_timestamp: "2022-08-29T00:00:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 19713.43,
-              volatility: 0.007222400856486826,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T23:00:00Z",
-              to_timestamp: "2022-08-28T23:30:00Z",
-              prediction: 1,
-              probability: 0.564616,
-              bet_size: 0.1,
-              side: -1,
-              actual_side: -1,
-              reference_price: 19903.85,
-              volatility: 0.007219845123804333,
-              trend: "down",
-              result: "correct",
-            },
-            {
-              from_timestamp: "2022-08-28T22:30:00Z",
-              to_timestamp: "2022-08-28T23:00:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 19906.58,
-              volatility: 0.007219484381797109,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T22:00:00Z",
-              to_timestamp: "2022-08-28T22:30:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 19964.01,
-              volatility: 0.007217861102290866,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T21:30:00Z",
-              to_timestamp: "2022-08-28T22:00:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 20014.15,
-              volatility: 0.007216001619817095,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T21:00:00Z",
-              to_timestamp: "2022-08-28T21:30:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: 1,
-              reference_price: 19988.03,
-              volatility: 0.007214334731125308,
-              trend: "ranging",
-              result: "- - -",
-            },
-          ],
-          metrics: {
-            start_date: "2022-07-30 00:00:00",
-            end_date: "2022-08-29 00:00:00",
-            period: "30 days",
-            total_rows: 1440,
-            predicted_rows: 534,
-            correct_predictions: 265,
-            true_positives: 264,
-            true_negatives: 1,
-            false_positives: 264,
-            false_negatives: 4,
-            accuracy: 0.4972,
-            f1_score: 0.663316582718,
-            precision: 0.5,
-            recall: 0.9851,
-            prediction_capacity: null,
-            tradable_capacity: null,
-          },
-        },
-        {
-          asset: "ETHERM",
-          base_asset: "ETH",
-          quote_asset: "USDT",
-          timestamp: "2022-08-29T00:00:00Z",
-
-          previous: [
-            {
-              from_timestamp: "2022-08-28T23:30:00Z",
-              to_timestamp: "2022-08-29T00:00:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 19713.43,
-              volatility: 0.007222400856486826,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T23:00:00Z",
-              to_timestamp: "2022-08-28T23:30:00Z",
-              prediction: 1,
-              probability: 0.564616,
-              bet_size: 0.1,
-              side: -1,
-              actual_side: -1,
-              reference_price: 19903.85,
-              volatility: 0.007219845123804333,
-              trend: "down",
-              result: "correct",
-            },
-            {
-              from_timestamp: "2022-08-28T22:30:00Z",
-              to_timestamp: "2022-08-28T23:00:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 19906.58,
-              volatility: 0.007219484381797109,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T22:00:00Z",
-              to_timestamp: "2022-08-28T22:30:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 19964.01,
-              volatility: 0.007217861102290866,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T21:30:00Z",
-              to_timestamp: "2022-08-28T22:00:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: -1,
-              reference_price: 20014.15,
-              volatility: 0.007216001619817095,
-              trend: "ranging",
-              result: "- - -",
-            },
-            {
-              from_timestamp: "2022-08-28T21:00:00Z",
-              to_timestamp: "2022-08-28T21:30:00Z",
-              prediction: 0,
-              probability: 0.0,
-              bet_size: 0.0,
-              side: 0,
-              actual_side: 1,
-              reference_price: 19988.03,
-              volatility: 0.007214334731125308,
-              trend: "ranging",
-              result: "- - -",
-            },
-          ],
-          metrics: {
-            start_date: "2022-07-30 00:00:00",
-            end_date: "2022-08-29 00:00:00",
-            period: "30 days",
-            total_rows: 1440,
-            predicted_rows: 534,
-            correct_predictions: 265,
-            true_positives: 264,
-            true_negatives: 1,
-            false_positives: 264,
-            false_negatives: 4,
-            accuracy: 0.4972,
-            f1_score: 0.663316582718,
-            precision: 0.5,
-            recall: 0.9851,
-            prediction_capacity: null,
-            tradable_capacity: null,
-          },
-        },
-        
-      ]
-
-    }
-  }
+      Products: [],
+    };
+  },
+  mounted() {
+    const currentTimeStamp = new Date().toISOString().split(".")[0] + "Z";
+    axios
+      .get(
+        `https://rx03iubpad.execute-api.us-east-2.amazonaws.com/Stage/v1/sample_predictions?ts=${currentTimeStamp}`
+      )
+      .then((res) => {
+        console.log("data", res.data.data.payload);
+        this.Products = res.data.data.payload;
+      });
+  },
 };
 </script>

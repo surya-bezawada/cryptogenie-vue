@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignupView from '../views/SignupView.vue'
 import  MainView from '../views/MainView.vue'
-import PredictionsView from '../views/PredictionsView.vue'
+import PredictionsView from '../views/PredictionsView'
 
 
 
@@ -29,9 +29,6 @@ const routes = [
       component: PredictionsView
     },
     
- 
-   
- 
  
  
 ]
