@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="logout">Log out</button>
+    <a class="dropdown-item" @click="logout">Log out</a>
   </div>
 </template>
 <script>
@@ -19,3 +19,6 @@
     }
   };
 </script>
+<style>
+
+</style>

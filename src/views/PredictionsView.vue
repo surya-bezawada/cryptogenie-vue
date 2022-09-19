@@ -5,6 +5,7 @@
       v-for="product in Products"
       :key="product.asset"
       :product="product"
+
     />
     <Footer></Footer>
   </div>
@@ -32,6 +33,7 @@ export default {
       .then((res) => {
         console.log("data", res.data.data.payload);
         this.Products = res.data.data.payload;
+        console.log(res.data.data)
       });
   },
 };

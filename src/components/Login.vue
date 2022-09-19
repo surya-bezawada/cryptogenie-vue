@@ -18,6 +18,9 @@
         login: () => {
           loginWithRedirect();
         },
+        mounted(){
+          this.auth0HandleAuthentication();
+        },
         user,
         isAuthenticated
       };
@@ -40,3 +43,4 @@
   border: 2px dotted #6237de;
 }
 </style>
+

@@ -10,7 +10,7 @@
             <button class="btn-bit" type="submit">{{ product.asset }}</button>
           </div>
           <div class="col-6 d-flex gap-2 justify-content-end">
-            <img src="../assets/timer_gif_maker.gif" class="img-fluid" width="100%" alt="" />
+            <img src="https://assets-cryptogenie.yantraka.ai/v1/icons_images/timer_gif_maker.gif" class="img-fluid" width="100%" alt="" />
             <h6>Next Prediction</h6>
           </div>
         </div>
@@ -102,6 +102,8 @@
             v-for="previou in product.previous"
             :key="previou.from_timestamp"
             :previou="previou"
+      
+
           />
         </div>
       </div>

@@ -32,7 +32,7 @@
               <Login />
             </li>
           </div>
-          <div class="dropdown">
+          <div class="dropstart">
             <li class="nav-item dropdown ms-auto" v-if="isAuthenticated">
               <a
                 class="nav-link dropdown-toggle"
@@ -41,7 +41,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="fa fa-user" style="font-size: 48px; color: red"></i>
+                <i class="fa fa-user" style="font-size: 30px; color: black"></i>
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -109,5 +109,10 @@ a:hover {
 
 .login:hover {
   border: 2px dotted #6237de;
+}
+
+.dropstart .dropdown-toggle::before {
+  border-right: 0px;
+  border-bottom: 0px;
 }
 </style>
