@@ -1,14 +1,34 @@
 <template>
   <div class="pre">
-    <Navbar></Navbar>
-    <PredictionCard
-      v-for="product in Products"
-      :key="product.asset"
-      :product="product"
 
-    />
+    <Navbar></Navbar>
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-6">
+          <p class="fs-24 fw-700">Trend Predictions</p>
+          <a href="" class="fs-18 fw-700">How it works?</a>
+        </div>
+        <div class="col-6 d-flex justify-content-end ">
+          <div class="btn-group">
+            <button class="coin dropdown-toggle fs-24 fw-700" type="button" data-bs-toggle="dropdown"
+              data-bs-auto-close="false" aria-expanded="false">
+              Filter by Coin
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <PredictionCard v-for="product in Products" :key="product.asset" :product="product" />
+
     <Footer></Footer>
   </div>
+
 </template>
 <script>
 import Navbar from "@/components/Navbar.vue";
@@ -38,3 +58,13 @@ export default {
   },
 };
 </script>
+<style>
+.coin {
+  border: 1px solid #fff;
+  border-radius: 0%;
+  height: 50px;
+
+
+
+}
+</style>

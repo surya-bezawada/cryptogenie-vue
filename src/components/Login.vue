@@ -1,30 +1,32 @@
 <template>
   <div>
-    <button class="login" @click="login">Sign in</button>
-    <pre v-if="isAuthenticated">
-        <code>{{ user }}</code>
-      </pre>
+    <button class="login" @click="login" >Sign in</button>
+   
   </div>
 </template>
 <script>
-  import { useAuth0 } from '@auth0/auth0-vue';
+  import {  useAuth0 } from '@auth0/auth0-vue';
+ 
+
+ 
 
   export default {
     name:'log-in',
+    //mixins: [mixins],
     setup() {
-      const { loginWithRedirect, user, isAuthenticated } = useAuth0();
+      const { loginWithRedirect, } = useAuth0();
 
       return {
         login: () => {
           loginWithRedirect();
         },
-        mounted(){
-          this.auth0HandleAuthentication();
-        },
-        user,
-        isAuthenticated
+       
+          
+         
+       
       };
-    }
+    },
+    
   };
 </script>
 <style>

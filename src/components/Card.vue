@@ -6,7 +6,8 @@
           <div class="d-flex flex-row justify-content-center">
             <p class="timestamp text-center">
               {{ dateFormate(previou.from_timestamp) }}
-            </p><span>-</span>
+            </p>
+            <span>-</span>
             <p class="timestamp text-center">
               {{ dateFormate(previou.to_timestamp) }}
             </p>
@@ -14,7 +15,11 @@
 
           <div class="line"></div>
           <div class="trends text-center">
-            <img class="img-fluid" src="../assets/Vector92.svg" alt="Ranging" />
+            <img
+              class="img-fluid"
+              :src="trendStat(previou.trend)"
+              alt="Ranging"
+            />
           </div>
           <p
             class="fs-14 fw-700 pt-2 text-center"
@@ -22,21 +27,48 @@
           >
             {{ previou.trend }}
           </p>
-          <p class="text-color fw-700 fs-14 text-center">297.4000 USDT</p>
+          <p class="text-color fw-700 fs-14 text-center">
+            {{ previou.reference_price }}
+          </p>
           <div class="action result">
-            <!-- <img class="img-fluid p-0" src="../assets/Minus.svg" alt="" /> -->
-            <b class="fs-14 fw-700">{{ previou.result }}</b>
+            <img
+              class="img-fluid p-0 me-1"
+              :src="resultState(previou.result)"
+              alt=""
+            />
+            <b class="fs-16 fw-700">{{ previou.result }}</b>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="card-7">
+        <Card2
+          v-for="current in playloads.current"
+          :key="current.result"
+          :current="current"
+        />
       </div>
     </div>
   </div>
 </template>
 <script>
+import up from "../assets/Vector91.svg";
+import ranging from "../assets/Vector92.svg";
+import uncertain from "../assets/uncertain.svg";
+import down from "../assets/Vector93.svg";
+import correct from "../assets/correct.svg";
+import missed from "../assets/missed.svg";
+import Card2 from "./card2.vue";
+
 export default {
   name: "card-item",
   props: ["previou"],
-
+  data() {
+    return {
+      playloads: [],
+    };
+  },
   methods: {
     dateFormate(todate) {
       const date = new Intl.DateTimeFormat("en-GB", {
@@ -45,18 +77,27 @@ export default {
         hour12: true,
       }).format(new Date(todate));
       console.log(date);
-
       return date;
     },
-
-    // formatDate: function () {
-    //   return new Intl.DateTimeFormat("en-GB", {
-    //     hour: "numeric",
-    //     minute: "numeric",
-    //     hour12: true,
-    //   }).format(new Date(this.previou));
-    // },
+    trendStat: (trendName) => {
+      let trend = {
+        up: up,
+        down: down,
+        ranging: ranging,
+        uncertain: uncertain,
+      }[trendName];
+      return trend;
+    },
+    resultState: (resultState) => {
+      let result = {
+        correct: correct,
+        missed: missed,
+        uncertain: uncertain,
+      }[resultState];
+      return result;
+    },
   },
+  components: { Card2 },
 };
 </script>
 <style scoped>
