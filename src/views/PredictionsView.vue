@@ -1,17 +1,21 @@
 <template>
   <div class="pre">
-
     <Navbar></Navbar>
     <div class="container-fluid">
-      <div class="row ">
+      <div class="row">
         <div class="col-6">
           <p class="fs-24 fw-700">Trend Predictions</p>
           <a href="" class="fs-18 fw-700">How it works?</a>
         </div>
-        <div class="col-6 d-flex justify-content-end ">
+        <div class="col-6 d-flex justify-content-end">
           <div class="btn-group">
-            <button class="coin dropdown-toggle fs-24 fw-700" type="button" data-bs-toggle="dropdown"
-              data-bs-auto-close="false" aria-expanded="false">
+            <button
+              class="coin dropdown-toggle fs-24 fw-700"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="false"
+              aria-expanded="false"
+            >
               Filter by Coin
             </button>
             <ul class="dropdown-menu">
@@ -24,11 +28,14 @@
       </div>
     </div>
 
-    <PredictionCard v-for="product in Products" :key="product.asset" :product="product" />
+    <PredictionCard
+      v-for="product in Products"
+      :key="product.asset"
+      :product="product"
+    />
 
     <Footer></Footer>
   </div>
-
 </template>
 <script>
 import Navbar from "@/components/Navbar.vue";
@@ -53,7 +60,7 @@ export default {
       .then((res) => {
         console.log("data", res.data.data.payload);
         this.Products = res.data.data.payload;
-        console.log(res.data.data)
+        console.log(res.data.data);
       });
   },
 };
@@ -63,8 +70,5 @@ export default {
   border: 1px solid #fff;
   border-radius: 0%;
   height: 50px;
-
-
-
 }
 </style>

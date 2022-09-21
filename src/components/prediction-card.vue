@@ -117,11 +117,15 @@
         </div>
       </div>
       <div class="prediction-card pt-2 d-flex justify-content-between">
+        <Card2 :latest="product.current" />
         <Card
           v-for="previou in product.previous"
           :key="previou.result"
           :previou="previou"
+          
         />
+
+       
       </div>
     </div>
   </div>
@@ -129,7 +133,7 @@
 
 <script>
 import Card from "./Card.vue";
-
+import Card2 from "./card2.vue";
 import Bitcoin from "../assets/g16.svg";
 import Ethereum from "../assets/eth.svg";
 import Tether from "../assets/usdt.svg";
@@ -141,8 +145,8 @@ import USDCoin from "../assets/usdc.svg";
 
 export default {
   name: "prediction-item",
-  props: ["product", "current"],
-  components: { Card },
+  props: ["product"],
+  components: { Card, Card2 },
   data() {
     return {
       payload: [],

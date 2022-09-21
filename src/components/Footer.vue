@@ -3,18 +3,22 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6">
-          <img src="../assets/Logo2.svg" alt="" />
+          <router-link :to="`/`" 
+            ><img src="../assets/Logo2.svg" alt="" /></router-link>
+          
         </div>
         <div class="col-6">
           <ul class="nav justify-content-end">
             <li class="nav-item fw-700px fs-16px">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="/#features">Features</a>
             </li>
             <li class="nav-item fw-700px fs-16px">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="/#pricing">Pricing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Predictions</a>
+              <router-link :to="`/prediction`" class="nav-link"
+            >Predictions</router-link
+          >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Support</a>
@@ -25,7 +29,9 @@
       <hr />
       <div class="row">
         <div class="col-6">
-          <img src="../assets/@Yantraka.svg" alt="" />
+          <router-link :to="`/main`" 
+            ><img src="../assets/@Yantraka.svg" alt="" /></router-link>
+         
         </div>
         <div class="col-6">
           <ul class="nav justify-content-end">

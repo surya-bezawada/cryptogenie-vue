@@ -41,15 +41,11 @@
         </div>
       </div>
     </div>
-    <div class="col-2">
+    <!-- <div class="col-2">
       <div class="card-7">
-        <Card2
-          v-for="current in playloads.current"
-          :key="current.result"
-          :current="current"
-        />
+        <Card2 :key="current" :current="current" />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -59,11 +55,11 @@ import uncertain from "../assets/uncertain.svg";
 import down from "../assets/Vector93.svg";
 import correct from "../assets/correct.svg";
 import missed from "../assets/missed.svg";
-import Card2 from "./card2.vue";
+//import Card2 from "./card2.vue";
 
 export default {
   name: "card-item",
-  props: ["previou"],
+  props: [ "previou","current"],
   data() {
     return {
       playloads: [],
@@ -97,7 +93,7 @@ export default {
       return result;
     },
   },
-  components: { Card2 },
+  //components: { Card2 },
 };
 </script>
 <style scoped>

@@ -2,7 +2,7 @@
   <Navbar />
 
   <div class="container-fluid">
-    <div class="row mt-5">
+    <div class="row mt-5" id="home">
       <div class="col-lg-6 col-md-6">
         <img
           src="../assets/machine.svg"
@@ -158,7 +158,7 @@
     />
     <div class="container p-0">
       <div class="row">
-        <p class="pricing fs-32 fw-700 mt-5 mb-5 text-center">Pricing</p>
+        <p class="pricing fs-32 fw-700 mt-5 mb-5 text-center" id="pricing">Pricing</p>
         <p class="fs-16 fw-400 price-content text-center">
           It uses advanced financial machine learning concepts and techniques to
           create models that generate predictive trends for crypto assets.

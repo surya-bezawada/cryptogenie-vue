@@ -7,20 +7,18 @@
 
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="/#home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/features">Features</a>
+          <a class="nav-link" href="/#features">Features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="/#pricing">Pricing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" >About</a>
-        </li>
-        <li class="nav-item">
-          
-          <router-link :to="`/prediction`" class="nav-link">Predictions</router-link>
+          <router-link :to="`/prediction`" class="nav-link"
+            >Predictions</router-link
+          >
         </li>
       </ul>
       <div class="register">
@@ -78,7 +76,6 @@ export default {
       isAuthenticated: this.$auth0.isAuthenticated,
     };
   },
- 
 };
 </script>
 <style scoped>
