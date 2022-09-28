@@ -56,7 +56,7 @@
     </div>
   </div>
 
-  <div class="container mt-5">
+  <div class="container mt-5 pt-5">
     <p class="text-center fs-3" id="features">Features</p>
 
     <div class="row">
@@ -156,9 +156,11 @@
       width="100%"
       alt=""
     />
-    <div class="container p-0">
+    <div class="container p-0 mt-5">
       <div class="row">
-        <p class="pricing fs-32 fw-700 mt-5 mb-5 text-center" id="pricing">Pricing</p>
+        <p class="pricing fs-32 fw-700 mt-5 mb-5 text-center" id="pricing">
+          Pricing
+        </p>
         <p class="fs-16 fw-400 price-content text-center">
           It uses advanced financial machine learning concepts and techniques to
           create models that generate predictive trends for crypto assets.
@@ -339,6 +341,7 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+//import { useAuth0 } from "@auth0/auth0-vue";
 export default {
   name: "HomeView-page",
   components: {

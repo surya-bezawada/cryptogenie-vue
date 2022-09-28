@@ -60,7 +60,9 @@ export default {
       .then((res) => {
         console.log("data", res.data.data.payload);
         this.Products = res.data.data.payload;
-        console.log(res.data.data);
+        this.Products.forEach((x) => {
+          x.isVisible = false;
+        });
       });
   },
 };

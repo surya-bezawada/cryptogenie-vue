@@ -11,8 +11,8 @@ app.use(
   createAuth0({
     domain: "dev-fwx278xt.us.auth0.com",
     client_id: "cR6oOiZxiNjyw5SZ8blf8F9wHtrOyLj8",
+    responseType: "id_token",
     redirect_uri: window.location.origin,
-   
   })
 );
 

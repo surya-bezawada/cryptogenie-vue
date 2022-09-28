@@ -1,5 +1,6 @@
 <template>
-  <div class="card" >
+  <!-- <div v-if="product.asset === 'BTCUSDT'" class="card"> -->
+  <div class="card">
     <div class="card-body">
       <div class="d-flex flex-row justify-content-center">
         <p class="timestamp text-center">
@@ -14,32 +15,28 @@
       <div class="line"></div>
       <div class="trends text-center">
         <img class="img-fluid" :src="trendStat(latest.trend)" alt="Ranging" />
-      </div>
-      <p class="fs-14 fw-700 pt-2 text-center" style="margin-bottom: 0.75rem">
+        <p class="fs-14 fw-700 pt-2 text-center" style="margin-bottom: 0.75rem">
         {{ latest.trend }}
       </p>
-      <p class="text-color fw-700 fs-14 text-center">
+      </div>
+     
+      
+      <div class="action result mt-5">
+       
+        <p class="text-color fw-700 fs-14 text-center p-3 justify-content-between ">
         {{ latest.reference_price }}
       </p>
-      <div class="action result">
-        <img
-          class="img-fluid p-0 me-1"
-          :src="resultState(latest.result)"
-          alt=""
-        />
-        <b class="fs-16 fw-700">{{ latest.result }}</b>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-body bg-color">
-        <b class="fs-32 fw-900">To Unlock</b>
-        <button class=" btn">Sign In</button>
-      
 
-     
+  <!-- <div v-else class="card"> -->
+  <!-- <div class="card">
+    <div class="card-body bg-color">
+      <b class="fs-32 fw-900">To Unlock</b>
+      <button class="btn">Sign In</button>
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 import up from "../assets/Vector91.svg";
@@ -80,6 +77,11 @@ export default {
       return result;
     },
   },
+
+  // lastCard() {
+  //   this.product.asset === "BTCUSDT" ? <card2 /> : <Unlock />;
+  //   console.log(this.product.asset);
+  // },
 };
 </script>
 <style scoped>
@@ -91,6 +93,7 @@ a {
 .border_line {
   border: 4px solid #000;
 }
+
 
 #button {
   font-weight: 700;
@@ -158,6 +161,7 @@ a {
 
 .text-color {
   color: #a7afba;
+  margin: 0 auto;
 }
 
 .action {
@@ -167,15 +171,17 @@ a {
   display: flex;
   justify-content: 3px !important;
   justify-content: center;
+
 }
 
-.card  {
+.card {
   border-radius: 0px !important;
   width: 12rem !important;
 
-  border:2px solid black;
-    
-    box-shadow: 0px 0px 3px red;
+
+
+
+  box-shadow: -7px -2px 5px #000;
 }
 
 .flex-shrink-0 {
@@ -206,9 +212,8 @@ a {
   border: none;
   background-color: #6237de;
   color: #fff;
-
 }
-.bg-color{
-    background-color: #51d9b8;;
+.bg-color {
+  background-color: #51d9b8;
 }
 </style>

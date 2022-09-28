@@ -3,6 +3,7 @@
     <div class="card-predicitons mt-3">
       <div class="row">
         <div class="col-6 d-flex gap-2">
+          
           <img
             :src="getAssetInfo(product.base_asset)[0].baseAssetImg"
             alt="baseimg"
@@ -122,10 +123,7 @@
           v-for="previou in product.previous"
           :key="previou.result"
           :previou="previou"
-          
         />
-
-       
       </div>
     </div>
   </div>

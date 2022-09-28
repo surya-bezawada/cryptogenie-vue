@@ -4,6 +4,8 @@
       <a class="navbar-brand" href="#">
         <img src="../assets/Logo.svg" alt="" />
       </a>
+    
+  
 
       <ul class="nav">
         <li class="nav-item">
@@ -30,6 +32,7 @@
             <li class="nav-ite ms-auto">
               <Login />
             </li>
+
           </div>
           <div class="dropstart">
             <li class="nav-item dropdown ms-auto" v-if="isAuthenticated">
@@ -40,18 +43,19 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="fa fa-user" style="font-size: 30px; color: black"></i>
+              <img  width="28" alt="Avatar" src="../assets/person-circle.svg">
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
+                <li class="d-flex justify-content-center">
+                  <img width="19" heigh="20" alt="setting" src="../assets/setting-img.svg">
+                  <router-link :to="`/setting`" class="nav-link"
+            >Settings</router-link>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                <hr class="dropdown-divider">
+                <li class="d-flex justify-content-center">
+                  <img width="19" heigh="20" alt="setting" src="../assets/Logout-img.svg">
+                  <Logout/>
                 </li>
-                <li><Logout /></li>
               </ul>
             </li>
           </div>
@@ -63,19 +67,66 @@
 </template>
 
 <script>
+ 
 import Login from "./Login.vue";
 import Logout from "./Logout.vue";
+import createAuth0Client from '@auth0/auth0-spa-js';
+
+
+
+
+
 
 export default {
   name: "nav-page",
   props: {},
 
-  components: { Login, Logout },
+  components: { Login, Logout},
   data() {
     return {
+    
+      // const token = useAuth0()
       isAuthenticated: this.$auth0.isAuthenticated,
     };
   },
+
+  created(){
+    console.log(this.getid())
+  },
+  
+methods:{
+  async getid(){
+    const auth0Client = await createAuth0Client({
+      domain: "dev-fwx278xt.us.auth0.com",
+    client_id: "cR6oOiZxiNjyw5SZ8blf8F9wHtrOyLj8",
+  })
+  const claimsInfo = await auth0Client.getIdTokenClaims();
+  localStorage.setItem("id_token",claimsInfo.__raw);
+   console.log(claimsInfo.__raw)
+
+    
+  }
+}
+  
+  // methods: {
+  
+  //   async getAccessTokenSilently() {
+  //     localStorage.setItem("token", await this.$auth.getAccessTokenSilently());
+  //     console.log("token")
+      
+  //   },
+  //  async mounted(){
+  //     console.log(await this.getAccessTokenSilently());
+  //     console.log(await this.getIdToken());
+  //   },
+  //    async getIdToken() {
+  //     localStorage.setItem("id_token",await this.$auth.getIdTokenClaims());
+  //     console.log("id_token");
+  //     console.log(localStorage.getItem("id_token"));
+  //    }
+   
+  // }
+  
 };
 </script>
 <style scoped>
