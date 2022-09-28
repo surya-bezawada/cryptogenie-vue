@@ -35,19 +35,54 @@
             <div class="card mb-4 border-0">
               <div class="card-body p-0">
                 <div class="condition" v-for="itm in users" :key="itm.firstname">
-                  <div class="row">
-                    <div class="col-sm-2">
-                      <p class="mb-0">Name:</p>
+                  <div class="profile" v-if="show">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <p class="mb-0">Name:</p>
+                      </div>
+                      <div class="col-sm-10">
+                        <div class="d-flex justify-content-between ng-star-inserted">
+                          <p class="text-muted mb-0 fw-700">
+                            {{ itm.firstname }} {{ itm.lastname }}
+                          </p>
+                          <button alt="Info" class="btn btn-small btn-edit u-pointer">
+                            <i aria-hidden="true" class="fa fa-pencil fa-1x" width="28" @click="show = !show"></i>
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-sm-10">
-                      <div class="d-flex justify-content-between ng-star-inserted">
-                        <p class="text-muted mb-0 fw-700">
-                          {{ itm.firstname }} {{ itm.lastname }}
-                        </p>
-                        <button alt="Info" class="btn btn-small btn-edit u-pointer" router-view="/modal">
-                          <i aria-hidden="true" class="fa fa-pencil fa-2x" width="28"></i>
-                        </button>
+                  </div>
 
+                  <div class="profile-sub" v-else>
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <p class="mb-0">Name:</p>
+                      </div>
+                      <div class="col-sm-10">
+                        <div class="ng-star-inserted">
+                          <form novalidate="" class="ng-touched ng-pristine ng-valid">
+                            <div class="row">
+                              <div class="form-group col-md-6">
+                                <input type="text" placeholder="Firstname" formcontrolname="firstname"
+                                  class="form-control ng-touched ng-pristine ng-valid" v-model="itm.firstname" />
+                              </div>
+                              <div class="form-group col-md-6">
+                                <input type="text" placeholder="Lastname" formcontrolname="lastname"
+                                  class="form-control lastName-margin ng-touched ng-pristine ng-valid"
+                                  v-model="itm.lastname" />
+                              </div>
+                              <div class="form-group col-md-12 d-flex justify-content-end mt-2">
+                                <button type="button" class="fs-16 btn btn-lg btn-outline-dark" @click="show = !show">
+                                  Cancel
+                                </button>
+                                &nbsp;&nbsp;
+                                <button class="main-btn fs-16"   @click="updateUser()">
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -66,58 +101,6 @@
                           class="main-colr fs-18 fw-700 u-pointer ng-star-inserted">
                           Change Password
                         </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="popupchangePwd" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-                  tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="row p-3">
-                        <div class="modal-header">
-                          <h2 class="modal-title fw-700" id="exampleModalToggleLabel">
-                            Change Password
-                          </h2>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form class="ng-pristine">
-                          <div class="col-md-12">
-                            <div class="mb-3">
-                              <div class="pt-2 mt-3">
-                                <div class="validations">
-                                  <div>
-                                    <div class="h-24"></div>
-                                    <input type="password" formcontrolname="password" placeholder="Enter New Password"
-                                      v-model="Password" maxlength="30" triggers="focus" placement="bottom"
-                                      class="form-control fs-16 fw400 mb-3 ng-pristine" />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="pt-2 mt-3">
-                                <div class="h-24"></div>
-                                <input type="password" formcontrolname="confirmPassword" aria-describedby="emailHelp"
-                                  v-model="Confirmpassword" placeholder="Confirm New Password" maxlength="30"
-                                  class="form-control fs-16 ng-pristine" />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-lg-12 d-flex justify-content-end mt-3">
-                              <button type="button" data-bs-dismiss="modal" aria-label="Close"
-                                class="btn btn-lg btn-outline-dark fs-16 fw-700 me-2">
-                                Back
-                              </button>
-                              <div>
-                                <button type="button" class="btn btn-lg main-btn fs-16 fw-700" data-bs-toggle="modal"
-                                  data-bs-target="#staticBackdrop" @click="changepwd">
-                                  Change Password
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
                       </div>
                     </div>
                   </div>
@@ -178,25 +161,75 @@
           </div>
         </div>
       </div>
+
+      <!-- Change Password -->
+      <div class="modal fade" id="popupchangePwd" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="row p-3">
+              <div class="modal-header">
+                <h2 class="modal-title fw-700" id="exampleModalToggleLabel">
+                  Change Password
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form class="ng-pristine">
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <div class="pt-2 mt-3">
+                      <div class="validations">
+                        <div>
+                          <div class="h-24"></div>
+                          <input type="password" formcontrolname="password" placeholder="Enter New Password"
+                            v-model="Password" maxlength="30" triggers="focus" placement="bottom"
+                            class="form-control fs-16 fw400 mb-3 ng-pristine" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pt-2 mt-3">
+                      <div class="h-24"></div>
+                      <input type="password" formcontrolname="confirmPassword" aria-describedby="emailHelp"
+                        v-model="Confirmpassword" placeholder="Confirm New Password" maxlength="30"
+                        class="form-control fs-16 ng-pristine" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 d-flex justify-content-end mt-3">
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close"
+                      class="btn btn-lg btn-outline-dark fs-16 fw-700 me-2">
+                      Back
+                    </button>
+                    <div>
+                      <button type="button" class="btn btn-lg main-btn fs-16 fw-700" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" @click="changepwd">
+                        Change Password
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Model successful model -->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-body " >
+            <div class="modal-body">
               <div class="successful">
                 <h2>New Password Changed Successfully</h2>
-              <a href="/"><button type="button" class="btn btn-lg main-btn fs-16 fw-700"
-                  data-bs-dismiss="modal">Got It</button></a>
-
+                <a href="/"><button type="button" class="btn btn-lg main-btn fs-16 fw-700" data-bs-dismiss="modal">
+                    Got It
+                  </button></a>
               </div>
-             
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
     <div class="footer mt-5">
       <Footer />
@@ -212,13 +245,16 @@ import Planes from "./Planes.vue";
 export default {
   name: "setting-page",
   components: { Navbar, Footer, Planes },
+
   data() {
     return {
+      show: true,
       cutomerHistory: [],
       users: [],
       Password: "",
       Confirmpassword: "",
-
+      firstName: "",
+      lastName: "",
     };
   },
   created() {
@@ -226,6 +262,10 @@ export default {
     this.fetchUser();
   },
   methods: {
+    openModal() {
+      console.log("button clicked");
+      this.isModelOpen = !this.isModelOpen;
+    },
     cusmhistory() {
       this.cutomerHistory = [];
       let token = localStorage.getItem("id_token");
@@ -277,11 +317,12 @@ export default {
       axios
         .patch(
           "https://rx03iubpad.execute-api.us-east-2.amazonaws.com/Stage/v1/change_password",
-          adduser, {
-          headers: {
-            Authorization: `${token}`,
-          },
-        }
+          adduser,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
         )
         .then((res) => {
           console.log(res);
@@ -290,13 +331,33 @@ export default {
           console.log("Error : ", e);
         });
 
-
       console.log(adduser);
+    },
 
+    updateUser() {
+      let token = localStorage.getItem("id_token");
+      const adduser = {
+        firstName: this.firstname,
+        lastName: this.lastname,
+      };
 
-    }
+      axios
+        .patch(
+          "https://rx03iubpad.execute-api.us-east-2.amazonaws.com/Stage/v1/fetchuser",adduser,
 
-
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          console.log("Error : ", e);
+        });
+    },
   },
 };
 </script>
@@ -358,6 +419,4 @@ input {
 .modal-content {
   border-radius: 0px !important;
 }
-
-
 </style>

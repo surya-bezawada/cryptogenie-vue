@@ -2,7 +2,7 @@
     <div class="container-fluid">
 
  
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center mb-3">
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="pills-monthly-tab" data-bs-toggle="pill"
@@ -503,6 +503,7 @@
     
     .card-body {
       padding: 0 !important;
+      border:1px solid #e3e7ed;
     }
     .card-body:hover {
      border: 1px solid #6237de;

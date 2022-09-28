@@ -4,8 +4,8 @@ import SignupView from '../views/SignupView.vue'
 import  MainView from '../views/MainView.vue'
 import PredictionsView from '../views/PredictionsView'
 import  Settings from '../components/Settings.vue'
-import  Logout from '../components/Logout.vue'
-import  Modal from '../components/Modal.vue'
+
+
 
 const routes = [
   {
@@ -34,20 +34,6 @@ const routes = [
       name: 'setting',
       component: Settings
     },
-    {
-      path: '/logout',
-      name: 'logout',
-      component: Logout
-    },
-    {
-      path: '/modal',
-      name: 'modal',
-      component:Modal
-    },
-    
-    
- 
- 
 ]
 
 const router = createRouter({
