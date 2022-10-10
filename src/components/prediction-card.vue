@@ -143,11 +143,11 @@ import USDCoin from "../assets/usdc.svg";
 
 export default {
   name: "prediction-item",
-  props: ["product"],
+  props: ['product'],
   components: { Card, Card2 },
   data() {
     return {
-      payload: [],
+      
     };
   },
 

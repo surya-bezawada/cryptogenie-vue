@@ -1,12 +1,9 @@
 <template>
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top" style="padding: 1.15rem 0;">
       <a class="navbar-brand" href="#">
         <img src="../assets/Logo.svg" alt="" />
       </a>
-    
-  
-
       <ul class="nav">
         <li class="nav-item">
           <a class="nav-link" href="/#home">Home</a>
@@ -130,6 +127,9 @@ methods:{
 };
 </script>
 <style scoped>
+  .container-fluid {
+  padding: 2rem!important;
+}
 ul {
   margin: 0 auto;
 }
@@ -164,5 +164,13 @@ a:hover {
 .dropstart .dropdown-toggle::before {
   border-right: 0px;
   border-bottom: 0px;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    border-bottom: 1px solid #e3e7ed;
 }
 </style>

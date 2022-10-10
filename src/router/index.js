@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import SignupView from '../views/SignupView.vue'
+ import contact from '../components/contact.vue'
 import  MainView from '../views/MainView.vue'
 import PredictionsView from '../views/PredictionsView'
 import  Settings from '../components/Settings.vue'
+import  Signup from '../components/Signup.vue'
+
 
 
 
@@ -14,11 +16,7 @@ const routes = [
     component: HomeView
   },
   
-    {
-      path: '/signup',
-      name: 'signup',
-      component: SignupView
-    },
+   
     {
       path: '/main',
       name: 'main',
@@ -34,6 +32,18 @@ const routes = [
       name: 'setting',
       component: Settings
     },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
+
+    },
+     {
+      path: '/contact',
+      name: 'contact',
+      component: contact
+    },
+   
 ]
 
 const router = createRouter({

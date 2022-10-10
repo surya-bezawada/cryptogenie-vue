@@ -1,10 +1,10 @@
 <template>
-  <nav class="navbar navbar-expand-md fixed-top">
-    <div class="container-fluid p-0">
+  <nav class="navbar navbar-expand-md p-0">
+    <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../assets/Logo3.svg" alt="" />
       </a>
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav d-flex justify-conteent-end">
         <li class="nav-item">
           <a class="nav-link fs-16 fw-400 text-white" href="/">CryptoGenie</a>
         </li>
@@ -14,6 +14,7 @@
       </ul>
     </div>
   </nav>
+
   <div class="container-fluid p-0">
     <div class="frame">
       <img
@@ -23,16 +24,16 @@
         class="img-fluid"
       />
       <div class="energy">
-        <div class="row">
-          <div class="col-lg-6">
-            <p>
-              Yantraka.ai designs and develops products in Fintech, Energy and
-              Retail domains using advanced Artificial Intelligence & Machine
-              Learning
-            </p>
-          </div>
-        </div>
-        <button class="button-prime fs-24 fw-400">Go to Predictions</button>
+        <p>
+          Yantraka.ai designs and develops products in Fintech, Energy and
+          Retail domains using advanced Artificial Intelligence & Machine
+          Learning
+        </p>
+        <a href="/"
+          ><button class="button-prime fs-24 fw-400">
+            Go to Cryptogenie
+          </button></a
+        >
       </div>
     </div>
   </div>
@@ -50,15 +51,15 @@
       </a>
       <div class="row">
         <div class="col-6">
-          <p class="automated">
+          <p class="automated fs-24 fw-400">
             An Automated Predictive Trading Platform for Cryptocurrencies, Using
             advanced financial machine learning concepts and techniques at the
             cutting edge of technology from state of the art research papers
           </p>
-          <button class="btn">Go to Cryptogenie</button>
+          <a href="/"><button class="btn">Go to Cryptogenie</button></a>
         </div>
         <div class="col-6">
-          <p class="automated">
+          <p class="automated fs-24 fw-400">
             CryptoGenie can be licensed to capital management firms which can
             leverage the technolgoy to superior returns to their fund investors.
             It is an automated system end to end, right from data ingestion, to
@@ -71,7 +72,7 @@
     <div class="row pt-3">
       <div class="col-6">
         <img src="../assets/patternt.svg" alt="" />
-        <p class="pt-3">
+        <p class="pt-3 fs-24 fw-400">
           An "Industrial IoT solution for Energy generation prediction for Solar
           and Wind" using advanced AI/ML. This is achieved by building an
           Applied AI framework which when deployed enables accurate energy
@@ -87,13 +88,37 @@
               Trade conﬁdently using CryptoGenie trend predictions. Would you
               like to know more?
             </p>
-            <button class="btn">Go to Cryptogenie</button>
+            <button
+              class="btn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@getbootstrap"
+            >
+              Contact Us
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!--Modal popup  -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" style="max-width: 70%" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <Modal />
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Modal popup -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-6">
@@ -119,8 +144,11 @@
   </div>
 </template>
 <script>
+import Modal from "@/components/Modal.vue";
+
 export default {
   name: "main-page",
+  components: { Modal },
 };
 </script>
 <style scoped>
@@ -139,6 +167,7 @@ export default {
   align-items: flex-start;
   top: 20%;
   left: 10%;
+  width: 48%;
 }
 
 .navbar {
@@ -148,9 +177,8 @@ export default {
 .trade {
   position: relative;
 }
-.container{
-    width:980px;
-}
+
+
 .trade-main {
   position: absolute;
   color: #fefefe;
@@ -159,8 +187,11 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   top: 24%;
-  left: 10%;
+  left: 7%;
+  width: 300px;
+  font-weight: 800;
 }
+
 .btn,
 .btn:visited {
   padding: 16px 24px;
@@ -176,6 +207,7 @@ export default {
   background-color: #6237de;
   color: #fff;
 }
+
 .button-prime,
 .button-prime:visited {
   padding: 16px 24px;

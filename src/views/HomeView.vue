@@ -149,7 +149,7 @@
     </div>
   </div>
 
-  <div class="pricing mt-3 ">
+  <div class="pricing mt-3">
     <img
       src="../assets/Arrows2.svg"
       class="img-fluid img-css"
@@ -160,13 +160,77 @@
   <!-- Pricing -->
   <div class="mainprice p-0">
     <div class="container-fluid">
-      <div class="pricing">
+      <div class="pricing" id="pricing">
         <h1 class="fs-36 fw-700 text-center mt-5">Pricing</h1>
         <div class="planes mt-5 mb-5">
           <Planes />
         </div>
       </div>
     </div>
+
+    <!-- black banner -->
+    <div class="container space-gap">
+      <div class="group-one group-one-margin">
+        <img
+          alt="Trade Conﬁdently Using CryptoGenie"
+          width="100%"
+          height="80%"
+          class="img-fluid d-none d-sm-block mt-5"
+          src="https://assets-cryptogenie.yantraka.ai/v1/icons_images/Group48505.svg"
+        />
+        <img
+          alt="Black Background"
+          width="100%"
+          class="img-fluid d-block d-sm-none"
+          src="https://assets-cryptogenie.yantraka.ai/v1/icons_images/black.svg"
+        />
+        <div class="together">
+          <div class="together-sub">
+            <span class="fw-700 fs-16">Together</span>
+          </div>
+        </div>
+        <div class="group-two">
+          <p class="fs-36 trade-text fw-700">
+            Trade conﬁdently using CryptoGenie trend predictions. Would you like
+            to know more?
+          </p>
+          <div class="group-two-width">
+            <div class="text-center">
+              <button
+                type="button"
+                class="fw-700 fs-16 prediction-btn main-btn invest-btn contact-us"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-whatever="@getbootstrap"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- black banner -->
+
+    <!--Modal popup  -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" style="max-width: 70%" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+         <Modal/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal popup -->
+
     <div class="container p-0">
       <div class="row pt-5">
         <div class="col-lg-6">
@@ -196,6 +260,7 @@
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import Planes from "@/components/Planes.vue";
+import Modal from "@/components/Modal.vue";
 //import { useAuth0 } from "@auth0/auth0-vue";
 export default {
   name: "HomeView-page",
@@ -203,7 +268,8 @@ export default {
     Navbar,
     Footer,
     Planes,
-  },
+    Modal
+},
 };
 </script>
 
@@ -246,5 +312,51 @@ export default {
 }
 .mainprice {
   background-color: #f0f0f0;
+}
+.group-one {
+  position: relative;
+}
+.group-two {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #fff;
+  width: 46%;
+  justify-content: flex-start;
+  align-items: self-start;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+}
+.together-sub {
+  width: 120px;
+  height: 32px;
+  transform: skew(-35deg);
+  background: #51d9b8;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -3%;
+  left: 7%;
+  position: absolute;
+}
+
+.together-sub span {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000;
+  transform: skew(30deg);
+}
+
+.invest-btn {
+  width: 240px !important;
+  height: 56px !important;
+}
+.prediction-btn {
+  width: 177px;
+  height: 56px;
 }
 </style>

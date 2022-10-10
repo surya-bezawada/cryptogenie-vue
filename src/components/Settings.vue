@@ -174,42 +174,35 @@
                 </h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form class="ng-pristine">
-                <div class="col-md-12">
-                  <div class="mb-3">
-                    <div class="pt-2 mt-3">
-                      <div class="validations">
-                        <div>
-                          <div class="h-24"></div>
-                          <input type="password" formcontrolname="password" placeholder="Enter New Password"
-                            v-model="Password" maxlength="30" triggers="focus" placement="bottom"
-                            class="form-control fs-16 fw400 mb-3 ng-pristine" />
+              <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors }">
+                  
+                    <div class="form-row pt-1">
+                        <div class="form-group col mt-5">
+                            
+                            <Field name="password" type="password" class="form-control" :class="{ 'is-invalid': errors.password } " v-model="Password" placeholder="Password" />
+                            <div class="invalid-feedback">{{errors.password}}</div>
                         </div>
+                        <div class="form-group col mt-5 mb-3">
+                           
+                            <Field name="confirmPassword" type="password" class="form-control" :class="{ 'is-invalid': errors.confirmPassword }" v-model="Confirmpassword" placeholder="ConfirmPassword" />
+                            <div class="invalid-feedback">{{errors.confirmPassword}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-end mt-3">
+                      <button type="button" data-bs-dismiss="modal" aria-label="Close"
+                        class="btn btn-lg btn-outline-dark fs-16 fw-700 me-2">
+                        Back
+                      </button>
+                      <div>
+                        <button type="button" class="btn btn-lg main-btn fs-16 fw-700" data-bs-toggle="modal"
+                          data-bs-target="#staticBackdrop" @click="changepwd">
+                          Change Password
+                        </button>
                       </div>
                     </div>
-                    <div class="pt-2 mt-3">
-                      <div class="h-24"></div>
-                      <input type="password" formcontrolname="confirmPassword" aria-describedby="emailHelp"
-                        v-model="Confirmpassword" placeholder="Confirm New Password" maxlength="30"
-                        class="form-control fs-16 ng-pristine" />
-                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12 d-flex justify-content-end mt-3">
-                    <button type="button" data-bs-dismiss="modal" aria-label="Close"
-                      class="btn btn-lg btn-outline-dark fs-16 fw-700 me-2">
-                      Back
-                    </button>
-                    <div>
-                      <button type="button" class="btn btn-lg main-btn fs-16 fw-700" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop" @click="changepwd">
-                        Change Password
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+                </Form>
             </div>
           </div>
         </div>
@@ -241,13 +234,26 @@ import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 import axios from "axios";
 import Planes from "./Planes.vue";
+import { Form, Field } from 'vee-validate';
+    import * as Yup from 'yup';
 
 export default {
   name: "setting-page",
-  components: { Navbar, Footer, Planes },
+  components: { Navbar, Footer, Planes,  Form,
+            Field,},
 
   data() {
+    const schema = Yup.object().shape({
+                password: Yup.string()
+                    .min(6, 'Password must be at least 6 characters')
+                    .required('Password is required'),
+                confirmPassword: Yup.string()
+                    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+                    .required('Confirm Password is required'),
+            });
+    
     return {
+      schema,
       show: true,
       cutomerHistory: [],
       users: [],
