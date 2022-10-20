@@ -153,8 +153,8 @@ export default {
       email: Yup.string()
         .required("Email is required")
         .email("Email is invalid"),
-        address:Yup.string().required("Address is required"),
-        select: Yup.string().required("choose one"),
+      address: Yup.string().required("Address is required"),
+      select: Yup.string().required("choose one"),
     });
 
     return {
@@ -177,7 +177,7 @@ export default {
       };
 
       axios
-        .post(
+        .options(
           "https://rx03iubpad.execute-api.us-east-2.amazonaws.com/Stage/v1/contactus",
           adduser
         )

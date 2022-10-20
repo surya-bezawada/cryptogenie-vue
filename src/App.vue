@@ -1,12 +1,9 @@
 <template>
-
   <router-view />
 </template>
 
 <style>
-.container-fluid {
-  padding: 2rem;
-}
+
 #app {
   font-family: "Satoshi", sans-serif;
 }

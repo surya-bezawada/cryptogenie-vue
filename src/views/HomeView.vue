@@ -1,7 +1,7 @@
 <template>
   <Navbar />
 
-  <div class="container-fluid">
+  <div class="container-fluid mt-5 py-5">
     <div class="row mt-5" id="home">
       <div class="col-lg-6 col-md-6">
         <img
@@ -223,7 +223,7 @@
       <div class="modal-dialog" style="max-width: 70%" role="document">
         <div class="modal-content">
           <div class="modal-body">
-         <Modal/>
+            <Modal />
           </div>
         </div>
       </div>
@@ -268,8 +268,8 @@ export default {
     Navbar,
     Footer,
     Planes,
-    Modal
-},
+    Modal,
+  },
 };
 </script>
 
@@ -310,12 +310,15 @@ export default {
 .fs-36 {
   font-size: 36px;
 }
+
 .mainprice {
   background-color: #f0f0f0;
 }
+
 .group-one {
   position: relative;
 }
+
 .group-two {
   position: absolute;
   top: 0px;
@@ -329,6 +332,7 @@ export default {
   flex-direction: column;
   padding: 5%;
 }
+
 .together-sub {
   width: 120px;
   height: 32px;
@@ -355,8 +359,12 @@ export default {
   width: 240px !important;
   height: 56px !important;
 }
+
 .prediction-btn {
   width: 177px;
   height: 56px;
+}
+.home {
+  padding: 80px;
 }
 </style>

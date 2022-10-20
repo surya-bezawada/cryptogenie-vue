@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-md p-0">
+  <nav class="navbar navbar-expand-md p-0 fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../assets/Logo3.svg" alt="" />
@@ -9,7 +9,14 @@
           <a class="nav-link fs-16 fw-400 text-white" href="/">CryptoGenie</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-16 fw-400 text-white" href="#">Contact Us</a>
+          <a
+            class="nav-link fs-16 fw-400 text-white"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            data-bs-whatever="@getbootstrap"
+            >Contact Us</a
+          >
         </li>
       </ul>
     </div>
@@ -119,16 +126,16 @@
   </div>
 
   <!-- Modal popup -->
-  <div class="container-fluid">
+  <div class="container-fluid p-3">
     <div class="row">
       <div class="col-6">
-        <img src="../assets/Logo4.svg" alt="" />
+        <a href="#"><img src="../assets/Logo4.svg" alt="" /></a>
       </div>
     </div>
     <hr />
     <div class="row">
       <div class="col-6">
-        <img src="../assets/@Yantraka.svg" alt="" />
+        <a href="#"><img src="../assets/@Yantraka.svg" alt="" /></a>
       </div>
       <div class="col-6">
         <ul class="nav justify-content-end">
@@ -177,7 +184,6 @@ export default {
 .trade {
   position: relative;
 }
-
 
 .trade-main {
   position: absolute;

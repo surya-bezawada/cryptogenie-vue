@@ -4,6 +4,10 @@ import router from "./router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import { createAuth0 } from "@auth0/auth0-vue";
+import HighchartsVue from "highcharts-vue";
+
+
+
 
 const app = createApp(App);
 
@@ -16,6 +20,8 @@ app.use(
   })
 );
 
+
 app.use(router);
+app.use(HighchartsVue);
 
 app.mount("#app");

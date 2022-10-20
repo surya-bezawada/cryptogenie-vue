@@ -1,6 +1,9 @@
 <template>
-  <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top" style="padding: 1.15rem 0;">
+  <div class="container">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-white fixed-top"
+      style="padding: 1.15rem 60px"
+    >
       <a class="navbar-brand" href="#">
         <img src="../assets/Logo.svg" alt="" />
       </a>
@@ -29,7 +32,6 @@
             <li class="nav-ite ms-auto">
               <Login />
             </li>
-
           </div>
           <div class="dropstart">
             <li class="nav-item dropdown ms-auto" v-if="isAuthenticated">
@@ -40,18 +42,33 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-              <img  width="28" alt="Avatar" src="../assets/person-circle.svg">
+                <img
+                  width="28"
+                  alt="Avatar"
+                  src="../assets/person-circle.svg"
+                />
               </a>
               <ul class="dropdown-menu">
                 <li class="d-flex justify-content-center">
-                  <img width="19" heigh="20" alt="setting" src="../assets/setting-img.svg">
+                  <img
+                    width="19"
+                    heigh="20"
+                    alt="setting"
+                    src="../assets/setting-img.svg"
+                  />
                   <router-link :to="`/setting`" class="nav-link"
-            >Settings</router-link>
+                    >Settings</router-link
+                  >
                 </li>
-                <hr class="dropdown-divider">
+                <hr class="dropdown-divider" />
                 <li class="d-flex justify-content-center">
-                  <img width="19" heigh="20" alt="setting" src="../assets/Logout-img.svg">
-                  <Logout/>
+                  <img
+                    width="19"
+                    heigh="20"
+                    alt="setting"
+                    src="../assets/Logout-img.svg"
+                  />
+                  <Logout />
                 </li>
               </ul>
             </li>
@@ -64,53 +81,44 @@
 </template>
 
 <script>
- 
 import Login from "./Login.vue";
 import Logout from "./Logout.vue";
-import createAuth0Client from '@auth0/auth0-spa-js';
-
-
-
-
-
+import createAuth0Client from "@auth0/auth0-spa-js";
 
 export default {
   name: "nav-page",
   props: {},
 
-  components: { Login, Logout},
+  components: { Login, Logout },
   data() {
     return {
-    
       // const token = useAuth0()
       isAuthenticated: this.$auth0.isAuthenticated,
     };
   },
 
-  created(){
-    console.log(this.getid())
+  created() {
+    console.log(this.getid());
   },
-  
-methods:{
-  async getid(){
-    const auth0Client = await createAuth0Client({
-      domain: "dev-fwx278xt.us.auth0.com",
-    client_id: "cR6oOiZxiNjyw5SZ8blf8F9wHtrOyLj8",
-  })
-  const claimsInfo = await auth0Client.getIdTokenClaims();
-  localStorage.setItem("id_token",claimsInfo.__raw);
-   console.log(claimsInfo.__raw)
 
-    
-  }
-}
-  
+  methods: {
+    async getid() {
+      const auth0Client = await createAuth0Client({
+        domain: "dev-fwx278xt.us.auth0.com",
+        client_id: "cR6oOiZxiNjyw5SZ8blf8F9wHtrOyLj8",
+      });
+      const claimsInfo = await auth0Client.getIdTokenClaims();
+      localStorage.setItem("id_token", claimsInfo.__raw);
+      console.log(claimsInfo.__raw);
+    },
+  },
+
   // methods: {
-  
+
   //   async getAccessTokenSilently() {
   //     localStorage.setItem("token", await this.$auth.getAccessTokenSilently());
   //     console.log("token")
-      
+
   //   },
   //  async mounted(){
   //     console.log(await this.getAccessTokenSilently());
@@ -121,14 +129,14 @@ methods:{
   //     console.log("id_token");
   //     console.log(localStorage.getItem("id_token"));
   //    }
-   
+
   // }
-  
 };
 </script>
 <style scoped>
-  .container-fluid {
-  padding: 2rem!important;
+.container-fluid {
+  width: 60% !important;
+  padding: 2rem !important;
 }
 ul {
   margin: 0 auto;
@@ -166,11 +174,11 @@ a:hover {
   border-bottom: 0px;
 }
 .fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-    border-bottom: 1px solid #e3e7ed;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  border-bottom: 1px solid #e3e7ed;
 }
 </style>

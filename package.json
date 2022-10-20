@@ -18,6 +18,8 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "core-js": "^3.8.3",
+    "highcharts": "^10.2.1",
+    "highcharts-vue": "^1.4.0",
     "vee-validate": "^4.6.9",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

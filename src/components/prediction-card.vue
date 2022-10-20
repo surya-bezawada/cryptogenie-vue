@@ -3,7 +3,6 @@
     <div class="card-predicitons mt-3">
       <div class="row">
         <div class="col-6 d-flex gap-2">
-          
           <img
             :src="getAssetInfo(product.base_asset)[0].baseAssetImg"
             alt="baseimg"
@@ -34,91 +33,12 @@
           </div>
         </div>
       </div>
-      <div class="row pt-3">
-        <div class="col-12 d-flex gap-1">
-          <h4>Last 30 days</h4>
-          <div class="correction">
-            <p class="fs-14">
-              correct Predictions: {{ product.metrics.correct_predictions }} /
-              {{ product.metrics.predicted_rows }}
-            </p>
-            <!-- <img src="../assets/Line1.svg" alt="" class="percent" /> -->
-          </div>
-          <div class="accuracy d-flex gap-1 me-2">
-            <div class="col-6">
-              <p class="fs-14 fw-700">Accuracy</p>
-              <p class="percent fs-16 fw-700">
-                {{ product.metrics.accuracy.toFixed(2) }}
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="../assets/Accuracy.svg" alt="" />
-            </div>
-          </div>
-          <div class="vr"></div>
-          <div class="accuracy d-flex gap-1">
-            <div class="col-6">
-              <p class="fs-14 fw-700">F1Score</p>
-              <p class="percent fs-16 fw-700">
-                {{ product.metrics.f1_score.toFixed(2) }}
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="../assets/F1score.svg" alt="" />
-            </div>
-          </div>
-          <div class="vr"></div>
-          <div class="accuracy d-flex gap-1">
-            <div class="col-6">
-              <p class="fs-14 fw-700">Precision</p>
-              <p class="percent fs-16 fw-700">
-                {{ product.metrics.precision.toFixed(2) }}
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="../assets/precision.svg" alt="" />
-            </div>
-          </div>
-          <div class="vr"></div>
-          <div class="accuracy d-flex gap-1">
-            <div class="col-6">
-              <p class="fs-14 fw-700">Recall</p>
-              <p class="percent fs-16 fw-700">
-                {{ product.metrics.recall.toFixed(2) }}
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="../assets/Recall.svg" alt="" />
-            </div>
-          </div>
-          <div class="vr"></div>
-          <div class="accuracy d-flex gap-1">
-            <div class="col-6">
-              <p class="fs-14 fw-700">Prediction Capacity</p>
-              <p class="percent fs-16 fw-700">
-                {{ product.metrics.prediction_capacity }}
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="../assets/capacity.svg" alt="" />
-            </div>
-          </div>
-          <div class="vr"></div>
-          <div class="accuracy d-flex gap-1">
-            <div class="col-6">
-              <p class="fs-14 fw-700">Tradable Capacity</p>
-              <p class="percent fs-16 fw-700">
-                {{ product.metrics.tradable_capacity }}
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="../assets/capacity.svg" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Accuracy -->
+      <Contact :pie="product.metrics" />
+
+      <!-- accuracy -->
       <div class="prediction-card pt-2 d-flex justify-content-between">
-        <Card2 :latest="product.current" />
+        <Card2 :latest="product.current" :cars="product" />
         <Card
           v-for="previou in product.previous"
           :key="previou.result"
@@ -126,6 +46,8 @@
         />
       </div>
     </div>
+
+   
   </div>
 </template>
 
@@ -140,15 +62,14 @@ import Polkadot from "../assets/dot.svg";
 import Cardano from "../assets/ada.svg";
 import ATOM from "../assets/atom.svg";
 import USDCoin from "../assets/usdc.svg";
+import Contact from "./contact.vue";
 
 export default {
   name: "prediction-item",
-  props: ['product'],
-  components: { Card, Card2 },
+  props: ["product"],
+  components: { Card, Card2, Contact },
   data() {
-    return {
-      
-    };
+    return {};
   },
 
   methods: {
@@ -238,6 +159,10 @@ export default {
 };
 </script>
 <style scoped>
+.container-fluid {
+  width: 1440px;
+}
+
 .w-50 {
   width: 50px !important;
 }

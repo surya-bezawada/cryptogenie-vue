@@ -1,42 +1,42 @@
 <template>
-  <!-- <div v-if="product.asset === 'BTCUSDT'" class="card"> -->
-  <div class="card">
-    <div class="card-body">
-      <div class="d-flex flex-row justify-content-center">
-        <p class="timestamp text-center">
-          {{ dateFormate(latest.from_timestamp) }}
-        </p>
-        <span>-</span>
-        <p class="timestamp text-center">
-          {{ dateFormate(latest.to_timestamp) }}
-        </p>
-      </div>
+  <div v-if="cars.asset === 'BTCUSDT'">
+    <div class="card ms-2">
+      <div class="card-body">
+        <div class="d-flex flex-row justify-content-center">
+          <p class="timestamp text-center">
+            {{ dateFormate(latest.from_timestamp) }}
+          </p>
+          <span>-</span>
+          <p class="timestamp text-center">
+            {{ dateFormate(latest.to_timestamp) }}
+          </p>
+        </div>
 
-      <div class="line"></div>
-      <div class="trends text-center">
-        <img class="img-fluid" :src="trendStat(latest.trend)" alt="Ranging" />
-        <p class="fs-14 fw-700 pt-2 text-center" style="margin-bottom: 0.75rem">
-        {{ latest.trend }}
-      </p>
-      </div>
-     
-      
-      <div class="action result mt-5">
-       
-        <p class="text-color fw-700 fs-14 text-center p-3 justify-content-between ">
-        {{ latest.reference_price }}
-      </p>
+        <div class="line"></div>
+        <div class="trends text-center">
+          <img class="img-fluid" :src="trendStat(latest.trend)" alt="Ranging" />
+          <p
+            class="fs-14 fw-700 pt-2 text-center"
+            style="margin-bottom: 0.75rem"
+          >
+            {{ latest.trend }}
+          </p>
+        </div>
+
+        <div class="action result mt-5">
+          <p
+            class="text-color fw-700 fs-14 text-center p-3 justify-content-between"
+          >
+            {{ latest.reference_price }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- <div v-else class="card"> -->
-  <!-- <div class="card">
-    <div class="card-body bg-color">
-      <b class="fs-32 fw-900">To Unlock</b>
-      <button class="btn">Sign In</button>
-    </div>
-  </div> -->
+  <div v-else>
+    <Card3 />
+  </div>
 </template>
 <script>
 import up from "../assets/Vector91.svg";
@@ -45,10 +45,11 @@ import uncertain from "../assets/uncertain.svg";
 import down from "../assets/Vector93.svg";
 import correct from "../assets/correct.svg";
 import missed from "../assets/missed.svg";
+import Card3 from "./Card3.vue";
 
 export default {
   name: "card-2",
-  props: ["latest"],
+  props: ["latest", "cars"],
   methods: {
     dateFormate(todate) {
       const date = new Intl.DateTimeFormat("en-GB", {
@@ -77,11 +78,7 @@ export default {
       return result;
     },
   },
-
-  // lastCard() {
-  //   this.product.asset === "BTCUSDT" ? <card2 /> : <Unlock />;
-  //   console.log(this.product.asset);
-  // },
+  components: { Card3 },
 };
 </script>
 <style scoped>
@@ -93,7 +90,6 @@ a {
 .border_line {
   border: 4px solid #000;
 }
-
 
 #button {
   font-weight: 700;
@@ -171,17 +167,13 @@ a {
   display: flex;
   justify-content: 3px !important;
   justify-content: center;
-
 }
 
 .card {
   border-radius: 0px !important;
   width: 12rem !important;
-
-
-
-
-  box-shadow: -7px -2px 5px #000;
+  box-shadow: -4px -3px #000;
+  border: 1px solid #000;
 }
 
 .flex-shrink-0 {
@@ -197,6 +189,7 @@ a {
 .alert {
   left: 10px;
 }
+
 .btn,
 .btn:visited {
   padding: 16px 24px;
@@ -213,7 +206,26 @@ a {
   background-color: #6237de;
   color: #fff;
 }
-.bg-color {
-  background-color: #51d9b8;
+
+.card-bg {
+  padding: 1rem;
+  border-radius: 0;
+  border: none;
+  min-width: 164px !important;
+  height: 230px;
+  margin-right: 0.75rem;
+}
+
+.bg-guest {
+  background: #9ed8ca !important;
+}
+
+.individual {
+  height: 220px;
+  margin-top: 5px;
+  box-shadow: -4px -3px #000;
+  border: 2px solid #000;
+  background-color: #fff;
+  margin-right: 0 !important;
 }
 </style>

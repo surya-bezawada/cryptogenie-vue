@@ -5,8 +5,8 @@ import  MainView from '../views/MainView.vue'
 import PredictionsView from '../views/PredictionsView'
 import  Settings from '../components/Settings.vue'
 import  Signup from '../components/Signup.vue'
-
-
+import  Modal from '../components/Modal.vue'
+import  Piechart from '../components/Piechart.vue'
 
 
 const routes = [
@@ -42,6 +42,16 @@ const routes = [
       path: '/contact',
       name: 'contact',
       component: contact
+    },
+    {
+      path: '/modal',
+      name: 'modal',
+      component: Modal
+    },
+    {
+      path: '/pie',
+      name: 'pie',
+      component: Piechart
     },
    
 ]

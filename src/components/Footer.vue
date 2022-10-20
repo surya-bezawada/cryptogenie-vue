@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6">
-          <router-link :to="`/`" 
+         <router-link :to="`/`" 
             ><img src="../assets/Logo2.svg" alt="" /></router-link>
           
         </div>
@@ -54,6 +54,7 @@ export default {
 </script>
 <style scoped>
 .container-fluid {
+  width:1440px;
   padding: 2rem;
 }
 </style>
